@@ -33,9 +33,22 @@ export default function Nav() {
     };
   }, [open]);
 
+  // Only the home page puts a fullscreen video behind the bar; everywhere else
+  // it sits on the page background and needs dark text from the start.
+  const overHero = pathname === '/';
+
   return (
     <>
-      <header className={`nav ${scrolled ? 'nav--scrolled' : ''} ${open ? 'nav--open' : ''}`}>
+      <header
+        className={[
+          'nav',
+          overHero ? '' : 'nav--plain',
+          scrolled ? 'nav--scrolled' : '',
+          open ? 'nav--open' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         <Link href="/" className="nav__logo" aria-label={`${site.name} — home`}>
           <span className="nav__mark" aria-hidden="true">
             TN

@@ -1,12 +1,17 @@
 /* ---------------------------------------------------------------- tokens */
 
 :root {
-  --bg: #0d0d0d;
-  --bg-soft: #141414;
-  --fg: #f2f0ed;
-  --fg-dim: #8f8b86;
-  --line: rgba(242, 240, 237, 0.14);
+  --bg: #ffffff;
+  --bg-soft: #f0efec;
+  --fg: #111111;
+  --fg-dim: #6e6b66;
+  --line: rgba(17, 17, 17, 0.14);
   --accent: #2b2f7a;
+
+  /* Text sitting on top of imagery or video stays light regardless of the
+     page theme, since the media behind it is usually dark. */
+  --on-media: #ffffff;
+  --on-media-dim: rgba(255, 255, 255, 0.72);
 
   --pad: clamp(1.25rem, 4vw, 4rem);
   --gap: clamp(0.5rem, 1.4vw, 1.25rem);
@@ -76,18 +81,29 @@ p {
   justify-content: space-between;
   gap: 1rem;
   padding: 1.15rem var(--pad);
-  mix-blend-mode: difference;
-  transition: background 0.4s var(--ease), padding 0.4s var(--ease);
+  /* Over the hero video the bar is transparent with light text; once the page
+     scrolls under it, it becomes a solid light bar with dark text. */
+  color: var(--on-media);
+  transition: background 0.4s var(--ease), color 0.4s var(--ease),
+    padding 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 
 .nav--scrolled {
   padding-top: 0.85rem;
   padding-bottom: 0.85rem;
+  background: var(--bg);
+  color: var(--fg);
+  box-shadow: 0 1px 0 var(--line);
 }
 
-/* The panel sits above the blend layer, so drop blending while it is open. */
+/* Pages without a hero start against the page background, not media. */
+.nav--plain {
+  color: var(--fg);
+}
+
 .nav--open {
-  mix-blend-mode: normal;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 .nav__logo {
@@ -123,8 +139,9 @@ p {
 .nav__inline a {
   position: relative;
   padding-bottom: 2px;
-  color: var(--fg-dim);
-  transition: color 0.25s var(--ease);
+  color: inherit;
+  opacity: 0.68;
+  transition: opacity 0.25s var(--ease);
 }
 
 .nav__inline a::after {
@@ -142,7 +159,7 @@ p {
 
 .nav__inline a:hover,
 .nav__inline a.is-active {
-  color: var(--fg);
+  opacity: 1;
 }
 
 .nav__inline a:hover::after,
@@ -167,7 +184,7 @@ p {
   display: block;
   height: 1px;
   width: 100%;
-  background: var(--fg);
+  background: currentColor;
   transition: transform 0.35s var(--ease), opacity 0.2s var(--ease);
 }
 
@@ -288,6 +305,7 @@ p {
   width: 100%;
   padding: var(--pad);
   padding-bottom: clamp(3.5rem, 8vw, 6rem);
+  color: var(--on-media);
 }
 
 .hero__statement {
@@ -304,7 +322,7 @@ p {
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-top: 1.75rem;
-  color: var(--fg-dim);
+  color: var(--on-media-dim);
   font-size: 0.85rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -319,14 +337,14 @@ p {
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
 }
 
 .hero__scroll span {
   width: 1px;
   height: 0.85rem;
-  background: var(--fg);
+  background: var(--on-media);
   animation: nudge 1.8s var(--ease) infinite;
 }
 
@@ -368,11 +386,13 @@ p {
 
 /* ------------------------------------------------------------------ grid */
 
+/* Tiles butt directly against each other and run edge to edge - any side
+   padding here would read as a gap around the block. */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap);
-  padding: 0 var(--pad) clamp(4rem, 8vw, 7rem);
+  gap: 0;
+  padding: 0 0 clamp(4rem, 8vw, 7rem);
 }
 
 /* Give the grid rhythm: every seventh tile runs full width. */
@@ -429,6 +449,8 @@ p {
   width: 100%;
   padding: clamp(1rem, 2.2vw, 1.9rem);
   background: linear-gradient(to top, rgba(13, 13, 13, 0.75), transparent);
+  /* Captions sit on the artwork, so they stay light on the white theme. */
+  color: var(--on-media);
   pointer-events: none;
 }
 
@@ -440,7 +462,7 @@ p {
 
 .tile__meta {
   margin-top: 0.4rem;
-  color: rgba(242, 240, 237, 0.72);
+  color: var(--on-media-dim);
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -569,7 +591,6 @@ p {
 
 .project__next a:hover {
   color: var(--accent);
-  filter: brightness(2.2);
 }
 
 /* --------------------------------------------------------------- modules */
@@ -589,7 +610,7 @@ p {
   padding: 0 var(--pad);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.6;
-  color: rgba(242, 240, 237, 0.86);
+  color: rgba(17, 17, 17, 0.82);
 }
 
 .mod--image,
