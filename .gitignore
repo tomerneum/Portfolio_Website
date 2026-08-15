@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.DS_Store
+npm-debug.log*
+.env
+.env.local
+
+# Master video files - encode them with `npm run videos`, commit the small
+# results in public/videos instead.
+videos-src
+
+# Full-resolution source images (287 MB). The site serves the WebP and MP4
+# derivatives in public/img, which are committed. Keep these locally as your
+# master copies; re-create them any time with the scraper.
+public/images

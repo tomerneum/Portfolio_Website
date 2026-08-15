@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+.gitignore
+npm-debug.log*
+
+# Master video files are encoded into public/videos before deploying; the
+# originals are large and never served.
+videos-src
+
+# Full-resolution downloads. The site serves the WebP variants in public/img,
+# so shipping these would multiply the image payload for nothing.
+public/images
+
+README.md
+.claude

@@ -1,0 +1,23 @@
+{
+  "name": "tomer-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio site for Tomer Neumann, industrial designer.",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "images": "node scripts/optimize-images.cjs",
+    "videos": "node scripts/prepare-videos.cjs"
+  },
+  "dependencies": {
+    "next": "^16.3.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "sharp": "^0.35.3"
+  }
+}
