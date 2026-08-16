@@ -7,7 +7,7 @@ export const site = {
   role: 'Industrial Designer',
   // Shown over the fullscreen hero video on the home page.
   statement:
-    'I turn ideas into objects — through computational design, digital fabrication and a stubborn curiosity about how things are made.',
+    'Techno-Optimist Designer specializing in computational design, animation and technical problem solving',
   email: 'tomerneum@gmail.com',
   location: ['Tel Aviv', 'Israel'],
   social: [

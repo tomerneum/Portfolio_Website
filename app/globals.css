@@ -387,17 +387,47 @@ p {
 /* ------------------------------------------------------------------ grid */
 
 /* Tiles butt directly against each other and run edge to edge - any side
-   padding here would read as a gap around the block. */
+   padding here would read as a gap around the block.
+
+   The row unit is a third of the viewport, which is two thirds of a column.
+   That makes the two tile sizes fall out of the same grid automatically:
+   a one-row tile is 3:2 landscape, a two-row tile is 3:4 portrait. */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: calc(100vw / 3);
   gap: 0;
   padding: 0 0 clamp(4rem, 8vw, 7rem);
 }
 
-/* Give the grid rhythm: every seventh tile runs full width. */
-.grid .tile:nth-child(7n + 1) {
+/* A six-tile mosaic that mirrors itself: one portrait beside two landscapes,
+   then the same block flipped so the portrait lands on the other side.
+   Columns are pinned so the pattern can't drift as tiles are added. */
+.grid .tile:nth-child(6n + 1) {
+  grid-column: 1;
+  grid-row: span 2;
+}
+
+.grid .tile:nth-child(6n + 2),
+.grid .tile:nth-child(6n + 3) {
+  grid-column: 2;
+}
+
+.grid .tile:nth-child(6n + 4),
+.grid .tile:nth-child(6n + 5) {
+  grid-column: 1;
+}
+
+.grid .tile:nth-child(6n + 6) {
+  grid-column: 2;
+  grid-row: span 2;
+}
+
+/* An odd tile count would otherwise leave a hole in the last row, so the
+   final tile stretches across both columns as a wide closing band. */
+.grid .tile:last-child:nth-child(odd) {
   grid-column: 1 / -1;
+  grid-row: span 1;
 }
 
 .tile {
@@ -411,13 +441,14 @@ p {
   position: relative;
 }
 
+/* The grid row span decides the shape, so the media just fills its tile. */
 .tile__media {
   position: relative;
-  aspect-ratio: 3 / 2;
+  height: 100%;
 }
 
-.grid .tile:nth-child(7n + 1) .tile__media {
-  aspect-ratio: 21 / 9;
+.tile__link {
+  height: 100%;
 }
 
 .tile__media .videoTile {
@@ -790,13 +821,35 @@ p {
     gap: 1rem;
   }
 
+  /* On phones the mosaic collapses to one tile after another. Every
+     placement rule above has to be undone or tiles keep their spans and
+     leave holes in a single-column grid. */
   .grid {
     grid-template-columns: 1fr;
+    grid-auto-rows: auto;
   }
 
-  .grid .tile:nth-child(7n + 1) .tile__media,
+  .grid .tile,
+  .grid .tile:nth-child(6n + 1),
+  .grid .tile:nth-child(6n + 2),
+  .grid .tile:nth-child(6n + 3),
+  .grid .tile:nth-child(6n + 4),
+  .grid .tile:nth-child(6n + 5),
+  .grid .tile:nth-child(6n + 6),
+  .grid .tile:last-child:nth-child(odd) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
   .tile__media {
+    height: auto;
     aspect-ratio: 4 / 3;
+  }
+
+  /* Portrait sources still get a taller frame so they aren't over-cropped. */
+  .grid .tile:nth-child(6n + 1) .tile__media,
+  .grid .tile:nth-child(6n + 6) .tile__media {
+    aspect-ratio: 3 / 4;
   }
 
   .footer__cols {
