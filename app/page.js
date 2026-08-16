@@ -14,14 +14,8 @@ export default function Home() {
     <>
       <Hero video={heroVideo} poster={heroPoster} />
 
-      <section className="intro" id="work">
-        <p className="intro__label">Selected work</p>
-        <p className="intro__lead">
-          Thirteen projects in industrial design, computational modelling and digital fabrication.
-        </p>
-      </section>
-
-      <ProjectGrid projects={projects} />
+      {/* The grid carries the scroll anchor now that the intro block is gone. */}
+      <ProjectGrid projects={projects} id="work" />
 
       <section className="cta">
         <h2>Have something you want made?</h2>

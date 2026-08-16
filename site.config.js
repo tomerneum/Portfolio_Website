@@ -15,8 +15,9 @@ export const site = {
     { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
     { label: 'YouTube', href: 'https://www.youtube.com/' },
   ],
+  // No Work entry - the home page is the work index. Project pages still
+  // live under /work/<slug>.
   nav: [
-    { label: 'Work', href: '/work' },
     { label: 'About', href: '/about' },
     { label: 'Archive', href: '/archive' },
     { label: 'Contact', href: '/contact' },

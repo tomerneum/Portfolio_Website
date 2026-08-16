@@ -2234,5 +2234,25 @@
     ],
     "animated": false,
     "src": "/img/eb5a70cc-6938-4a6d-af00-e9d79c18ea17_rw_3840-2400.webp"
+  },
+  "bo-vacuum-cleaner-cover.jpg": {
+    "w": 1920,
+    "h": 1280,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/bo-vacuum-cleaner-cover-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/bo-vacuum-cleaner-cover-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/bo-vacuum-cleaner-cover-1600.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/bo-vacuum-cleaner-cover-1600.webp"
   }
 }
