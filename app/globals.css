@@ -430,7 +430,6 @@ p {
   bottom: 0;
   width: 100%;
   padding: clamp(1rem, 2.2vw, 1.9rem);
-  background: linear-gradient(to top, rgba(13, 13, 13, 0.75), transparent);
   /* Captions sit on the artwork, so they stay light on the white theme. */
   color: var(--on-media);
   pointer-events: none;
@@ -446,7 +445,6 @@ p {
    Touch devices keep it visible, since there is no hover to reveal it. */
 @media (hover: hover) and (min-width: 700px) {
   .tile__caption {
-    background: none;
     opacity: 0;
     transform: translateY(0.75rem);
     transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
