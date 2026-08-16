@@ -34,11 +34,7 @@ export default async function ProjectPage({ params }) {
         <h1 className="project__title">{project.title}</h1>
       </header>
 
-      <Modules
-        modules={project.modules}
-        localVideo={project.hasVideo ? project.video : null}
-        poster={project.cover}
-      />
+      <Modules modules={project.modules} />
 
       <nav className="project__next">
         <span>Next project</span>

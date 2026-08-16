@@ -32,18 +32,13 @@ function Figure({ image, sizes }) {
 }
 
 /**
- * A project video. Prefers a self-hosted mp4 (instant, silent, looping) and
- * falls back to the YouTube embed when no local file has been added yet.
+ * A project video, kept exactly as it was on the original site.
+ *
+ * Local mp4s are grid-thumbnail material only - they are short, silent loops.
+ * The embed here is the full piece with sound, so it stays put even when a
+ * project also has a local preview file.
  */
-function Video({ module, localSrc, poster }) {
-  if (localSrc) {
-    return (
-      <div className="mod mod--video">
-        <VideoTile src={localSrc} poster={poster?.src} posterSrcSet={poster?.srcSet} fit="contain" />
-      </div>
-    );
-  }
-
+function Video({ module }) {
   if (!module.youtubeId) return null;
 
   const params = new URLSearchParams({ rel: '0', modestbranding: '1' });
@@ -64,11 +59,7 @@ function Video({ module, localSrc, poster }) {
   );
 }
 
-export default function Modules({ modules, localVideo, poster }) {
-  // Only the first video module gets replaced by the local preview file;
-  // any additional ones stay on their original embed.
-  let usedLocal = false;
-
+export default function Modules({ modules }) {
   return (
     <div className="mods">
       {modules.map((m, i) => {
@@ -108,9 +99,7 @@ export default function Modules({ modules, localVideo, poster }) {
         }
 
         if (m.type === 'video') {
-          const src = !usedLocal && localVideo ? localVideo : null;
-          if (src) usedLocal = true;
-          return <Video key={i} module={m} localSrc={src} poster={poster} />;
+          return <Video key={i} module={m} />;
         }
 
         if (m.type === 'spline') {
