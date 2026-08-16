@@ -2,7 +2,7 @@ import Link from 'next/link';
 import VideoTile from './VideoTile.js';
 
 function Tile({ project, wide, priority }) {
-  const { slug, title, meta, accent, cover, video, hasVideo, videoPoster } = project;
+  const { slug, title, accent, cover, video, hasVideo, videoPoster } = project;
 
   // Prefer a real project video; otherwise fall back to the cover's own
   // motion, which exists when the original cover was an animated GIF.
@@ -30,7 +30,6 @@ function Tile({ project, wide, priority }) {
 
         <div className="tile__caption">
           <h2 className="tile__title">{title}</h2>
-          {meta && <p className="tile__meta">{meta}</p>}
         </div>
       </Link>
     </article>

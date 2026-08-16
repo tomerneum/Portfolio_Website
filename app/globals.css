@@ -442,14 +442,6 @@ p {
   text-wrap: balance;
 }
 
-.tile__meta {
-  margin-top: 0.4rem;
-  color: var(--on-media-dim);
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 /* On pointer devices the caption rises in on hover, the way Kilo's does.
    Touch devices keep it visible, since there is no hover to reveal it. */
 @media (hover: hover) and (min-width: 700px) {
