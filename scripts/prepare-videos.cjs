@@ -62,6 +62,9 @@ const OVERRIDES = {
     crop: 'iw:iw*2/3:0:ih*0.45',
   },
   'freelance-rendering-and-animation': { seconds: 20 },
+  // An assembly sequence: cutting it at the default would drop the finished
+  // state, which is the point of the animation.
+  'construction-design-for-moria-architects': { seconds: 16 },
   // Serves both the grid tile and the in-page module, so it is encoded at
   // full height rather than tile height.
   'mobius-spinning-top': { seconds: 16, height: 1080 },
@@ -75,6 +78,20 @@ if (!fs.existsSync(SRC)) {
 }
 
 fs.mkdirSync(OUT, { recursive: true });
+
+/**
+ * Reads a source's pixel dimensions. ffmpeg reports them on stderr and exits
+ * non-zero when given no output file, so the details arrive via the throw.
+ */
+function probe(input) {
+  try {
+    execFileSync(ffmpeg, ['-hide_banner', '-i', input], { stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch (e) {
+    const m = String(e.stderr || '').match(/Video:.*?[\s,](\d{2,5})x(\d{2,5})/);
+    if (m) return { w: Number(m[1]), h: Number(m[2]) };
+  }
+  return null;
+}
 
 const sources = fs
   .readdirSync(SRC)
@@ -93,9 +110,17 @@ for (const file of sources) {
   const poster = path.join(OUT, `${slug}.poster.jpg`);
 
   const opts = OVERRIDES[slug] || {};
-  const height = opts.height || HEIGHT;
+
+  // Never scale a source up: enlarging adds no detail and costs bytes.
+  const source = probe(input);
+  const wanted = opts.height || HEIGHT;
+  const height = source ? Math.min(wanted, source.h) : wanted;
 
   console.log(`\n${slug}`);
+  if (source) {
+    const note = height < wanted ? `  (source is ${source.h}p, not upscaling)` : '';
+    console.log(`  source ${source.w}x${source.h} -> ${height}p${note}`);
+  }
 
   try {
     execFileSync(
