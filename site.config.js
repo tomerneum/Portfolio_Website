@@ -123,11 +123,11 @@ export const mediaReplacements = {
 // Order projects appear in the grid. Anything not listed is appended.
 export const featuredOrder = [
   'impossible-ceramics',
-  'freelance-rendering-and-animation',
   'construction-design-for-moria-architects',
   'hydroponic-system',
   'dj-accessibility-kit',
   '3d-balance-board',
+  'freelance-rendering-and-animation',
   'bo-vacuum-cleaner',
   'ikea-hack-wheelchair-tray',
   'easypour-pitcher',
