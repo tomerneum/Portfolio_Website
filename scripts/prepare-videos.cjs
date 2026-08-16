@@ -33,6 +33,23 @@ const MAX_SECONDS = 12;
 const HEIGHT = 720;
 const CRF = 26;
 
+/**
+ * Per-project framing, applied before scaling.
+ *
+ * Grid tiles are 3:2 landscape. A portrait source dropped straight in gets
+ * centre-cropped by CSS, which usually slices off whatever matters. Naming an
+ * ffmpeg crop window here bakes the right framing into the file, so it
+ * survives re-encoding instead of living only in someone's memory.
+ *
+ * Format: 'w:h:x:y' in ffmpeg crop syntax (iw/ih = input width/height).
+ */
+const FRAMING = {
+  // 1080x1440 portrait. A centre crop cuts the glasses off at the bottom and
+  // keeps the face; this window sits lower, holding the spout, the pour and
+  // both glasses - the actual product story.
+  'easypour-pitcher': 'iw:iw*2/3:0:ih*0.45',
+};
+
 if (!fs.existsSync(SRC)) {
   fs.mkdirSync(SRC, { recursive: true });
   console.log(`Created ${SRC}`);
@@ -68,7 +85,9 @@ for (const file of sources) {
         '-i', input,
         '-t', String(MAX_SECONDS),
         '-an',
-        '-vf', `scale=-2:${HEIGHT}:flags=lanczos`,
+        '-vf', [FRAMING[slug] && `crop=${FRAMING[slug]}`, `scale=-2:${HEIGHT}:flags=lanczos`]
+          .filter(Boolean)
+          .join(','),
         '-c:v', 'libx264',
         '-profile:v', 'high',
         '-pix_fmt', 'yuv420p',
