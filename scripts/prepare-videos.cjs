@@ -43,22 +43,28 @@ const CRF = 26;
  *
  * Format: 'w:h:x:y' in ffmpeg crop syntax (iw/ih = input width/height).
  */
-const FRAMING = {
-  // 1080x1440 portrait. A centre crop cuts the glasses off at the bottom and
-  // keeps the face; this window sits lower, holding the spout, the pour and
-  // both glasses - the actual product story.
-  'easypour-pitcher': 'iw:iw*2/3:0:ih*0.45',
-};
-
 /**
- * Per-project length overrides, in seconds.
+ * Per-project encoding overrides.
  *
- * MAX_SECONDS keeps ordinary product loops short, but a reel is a sequence of
- * cuts - trimming it to the default would drop shots partway through. Name a
- * length here to let a clip run to its natural end.
+ *   crop    - ffmpeg crop window ('w:h:x:y', iw/ih = input size), applied
+ *             before scaling. Grid tiles are 3:2, so a portrait source gets
+ *             centre-cropped by CSS and usually loses whatever matters;
+ *             naming the window bakes the right framing into the file.
+ *   seconds - overrides MAX_SECONDS. The default keeps product loops short,
+ *             but applied to a reel it cuts the sequence mid-shot.
+ *   height  - overrides HEIGHT. Worth raising when the same file is also
+ *             shown full-width inside a project page, not just in a tile.
  */
-const DURATION = {
-  'freelance-rendering-and-animation': 20,
+const OVERRIDES = {
+  'easypour-pitcher': {
+    // A centre crop cut the glasses off the bottom and kept the face; this
+    // window sits lower, holding the spout, the pour and both glasses.
+    crop: 'iw:iw*2/3:0:ih*0.45',
+  },
+  'freelance-rendering-and-animation': { seconds: 20 },
+  // Serves both the grid tile and the in-page module, so it is encoded at
+  // full height rather than tile height.
+  'mobius-spinning-top': { seconds: 16, height: 1080 },
 };
 
 if (!fs.existsSync(SRC)) {
@@ -86,6 +92,9 @@ for (const file of sources) {
   const mp4 = path.join(OUT, `${slug}.mp4`);
   const poster = path.join(OUT, `${slug}.poster.jpg`);
 
+  const opts = OVERRIDES[slug] || {};
+  const height = opts.height || HEIGHT;
+
   console.log(`\n${slug}`);
 
   try {
@@ -94,9 +103,9 @@ for (const file of sources) {
       [
         '-y',
         '-i', input,
-        '-t', String(DURATION[slug] || MAX_SECONDS),
+        '-t', String(opts.seconds || MAX_SECONDS),
         '-an',
-        '-vf', [FRAMING[slug] && `crop=${FRAMING[slug]}`, `scale=-2:${HEIGHT}:flags=lanczos`]
+        '-vf', [opts.crop && `crop=${opts.crop}`, `scale=-2:${height}:flags=lanczos`]
           .filter(Boolean)
           .join(','),
         '-c:v', 'libx264',
@@ -119,7 +128,7 @@ for (const file of sources) {
   try {
     execFileSync(
       ffmpeg,
-      ['-y', '-i', mp4, '-frames:v', '1', '-q:v', '4', '-vf', `scale=-2:${HEIGHT}`, poster],
+      ['-y', '-i', mp4, '-frames:v', '1', '-q:v', '4', '-vf', `scale=-2:${height}`, poster],
       { stdio: ['ignore', 'ignore', 'pipe'] }
     );
     console.log('  poster ok');
