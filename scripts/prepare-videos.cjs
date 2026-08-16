@@ -50,6 +50,17 @@ const FRAMING = {
   'easypour-pitcher': 'iw:iw*2/3:0:ih*0.45',
 };
 
+/**
+ * Per-project length overrides, in seconds.
+ *
+ * MAX_SECONDS keeps ordinary product loops short, but a reel is a sequence of
+ * cuts - trimming it to the default would drop shots partway through. Name a
+ * length here to let a clip run to its natural end.
+ */
+const DURATION = {
+  'freelance-rendering-and-animation': 20,
+};
+
 if (!fs.existsSync(SRC)) {
   fs.mkdirSync(SRC, { recursive: true });
   console.log(`Created ${SRC}`);
@@ -83,7 +94,7 @@ for (const file of sources) {
       [
         '-y',
         '-i', input,
-        '-t', String(MAX_SECONDS),
+        '-t', String(DURATION[slug] || MAX_SECONDS),
         '-an',
         '-vf', [FRAMING[slug] && `crop=${FRAMING[slug]}`, `scale=-2:${HEIGHT}:flags=lanczos`]
           .filter(Boolean)
