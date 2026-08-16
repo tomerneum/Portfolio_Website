@@ -12,7 +12,7 @@ export const site = {
   location: ['Tel Aviv', 'Israel'],
   social: [
     { label: 'Instagram', href: 'https://www.instagram.com/' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tomer-neumann-440ab91a6/' },
     { label: 'YouTube', href: 'https://www.youtube.com/' },
   ],
   // No Work entry - the home page is the work index. Project pages still
