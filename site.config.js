@@ -109,10 +109,14 @@ export const projectMeta = {
 };
 
 // Client logo reel shown under the About text. Converted from the source GIF
-// to mp4 (686 KB -> 136 KB) with its slideshow pacing intact.
+// to mp4 (677 KB -> 136 KB) with its slideshow pacing intact.
+//
+// Note the -2 suffix: /videos/ is served immutable with a one-year max-age,
+// so a revised reel needs a NEW filename or browsers keep the old one.
+// Bump the number whenever the reel changes.
 export const aboutReel = {
-  video: '/videos/company-logo-reel.mp4',
-  poster: '/videos/company-logo-reel.poster.webp',
+  video: '/videos/company-logo-reel-2.mp4',
+  poster: '/videos/company-logo-reel-2.poster.webp',
 };
 
 // Swap a specific image inside a project page for a video.
