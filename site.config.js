@@ -108,6 +108,13 @@ export const projectMeta = {
   },
 };
 
+// Client logo reel shown under the About text. Converted from the source GIF
+// to mp4 (686 KB -> 136 KB) with its slideshow pacing intact.
+export const aboutReel = {
+  video: '/videos/company-logo-reel.mp4',
+  poster: '/videos/company-logo-reel.poster.webp',
+};
+
 // Swap a specific image inside a project page for a video.
 //
 // Keyed by the original filename in public/images. This lives here rather

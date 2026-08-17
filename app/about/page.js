@@ -1,6 +1,7 @@
 import Modules from '../../components/Modules.js';
+import VideoTile from '../../components/VideoTile.js';
 import { getPage } from '../../lib/content.js';
-import { site } from '../../site.config.js';
+import { site, aboutReel } from '../../site.config.js';
 
 export const metadata = { title: 'About' };
 
@@ -17,6 +18,12 @@ export default function AboutPage() {
       </header>
 
       {page ? <Modules modules={page.modules} /> : null}
+
+      {aboutReel?.video && (
+        <section className="about__reel">
+          <VideoTile src={aboutReel.video} poster={aboutReel.poster} alt="Clients" fit="contain" />
+        </section>
+      )}
 
       <section className="about__contact">
         <h2>Get in touch</h2>

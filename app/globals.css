@@ -645,11 +645,30 @@ p {
 
 /* --------------------------------------------------------- about/contact */
 
+/* Project text is centred as a reading column, but About reads as a single
+   left-aligned block under the heading. */
+.about .mod--text {
+  margin-left: 0;
+}
+
 /* The About portrait is a supporting detail, not a hero image, so it sits at
    a fixed small size instead of spanning the column like project imagery. */
 .about .mod--image {
   display: flex;
   justify-content: flex-start;
+}
+
+/* Client logo reel, sized to the text measure so it lines up with the copy. */
+.about__reel {
+  max-width: 62ch;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  padding: 0 var(--pad);
+}
+
+.about__reel .videoTile {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  background: transparent;
 }
 
 .about .mod--image .mod__img {
