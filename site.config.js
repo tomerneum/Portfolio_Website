@@ -5,6 +5,9 @@ export const site = {
   name: 'Tomer Neumann',
   nameHe: 'תומר ניימן',
   role: 'Industrial Designer',
+  // Canonical origin. Link previews (WhatsApp, LinkedIn, iMessage) need
+  // absolute URLs, so this is what turns /img/... into a shareable link.
+  url: 'https://tomerneumann.com',
   // Shown over the fullscreen hero video on the home page.
   statement:
     'Techno-Optimist Designer specializing in computational design, animation and technical problem solving',
