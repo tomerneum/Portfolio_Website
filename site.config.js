@@ -27,16 +27,18 @@ export const site = {
   ],
 };
 
-// The hero video, playing fullscreen behind the statement. It is the one
-// clip on the site that loads eagerly, so it is encoded harder than the rest
-// (27s of 1080p, 60 MB master -> 2.8 MB) - the scrim over it hides the
-// difference. Its own first frame is the poster, so there is no visible swap.
+// The hero video, playing fullscreen behind the statement.
+//
+// Deliberately the heaviest file on the site: 27s of 1080p at ~5.8 Mbps,
+// 60 MB master -> 18.7 MB. An earlier pass at 2.8 MB was visibly grainy on
+// the plywood, and this is the first thing anyone sees. It loads eagerly, so
+// the poster below carries the screen until enough of it has arrived.
 //
 // Like everything in /videos/ it is served immutable for a year: a revised
-// cut needs a NEW filename or browsers keep the old one.
+// cut needs a NEW filename or browsers keep the old one. Hence the -2.
 export const hero = {
-  video: '/videos/hero-assembly.mp4',
-  poster: '/videos/hero-assembly.poster.jpg',
+  video: '/videos/hero-assembly-2.mp4',
+  poster: '/videos/hero-assembly-2.poster.jpg',
 };
 
 // Per-project display metadata.
