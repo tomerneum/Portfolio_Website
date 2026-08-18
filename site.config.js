@@ -27,11 +27,16 @@ export const site = {
   ],
 };
 
-// The hero video. Drop a file at public/videos/showreel.mp4 and it plays
-// fullscreen behind the statement. Until then the poster image shows.
+// The hero video, playing fullscreen behind the statement. It is the one
+// clip on the site that loads eagerly, so it is encoded harder than the rest
+// (27s of 1080p, 60 MB master -> 2.8 MB) - the scrim over it hides the
+// difference. Its own first frame is the poster, so there is no visible swap.
+//
+// Like everything in /videos/ it is served immutable for a year: a revised
+// cut needs a NEW filename or browsers keep the old one.
 export const hero = {
-  video: '/videos/showreel.mp4',
-  poster: null, // falls back to the first project cover
+  video: '/videos/hero-assembly.mp4',
+  poster: '/videos/hero-assembly.poster.jpg',
 };
 
 // Per-project display metadata.
