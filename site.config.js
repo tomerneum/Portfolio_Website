@@ -12,12 +12,12 @@ export const site = {
   statement:
     'Techno-Optimist Designer specializing in computational design, animation and technical problem solving',
   email: 'tomerneum@gmail.com',
-  location: ['Tel Aviv', 'Israel'],
-  social: [
-    { label: 'Instagram', href: 'https://www.instagram.com/' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tomer-neumann-440ab91a6/' },
-    { label: 'YouTube', href: 'https://www.youtube.com/' },
-  ],
+  // E.164 for the tel: link; the contact page spaces it out for reading.
+  phone: '+972545609139',
+  location: ['Hofit', 'Israel'],
+  // LinkedIn is the only real profile - the Instagram and YouTube entries
+  // here pointed at the sites' front pages, not at Tomer, so they are gone.
+  social: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/tomer-neumann-440ab91a6/' }],
   // No Work entry - the home page is the work index. Project pages still
   // live under /work/<slug>.
   nav: [
