@@ -57,9 +57,16 @@ const CRF = 26;
  */
 const OVERRIDES = {
   'easypour-pitcher': {
-    // A centre crop cut the glasses off the bottom and kept the face; this
-    // window sits lower, holding the spout, the pour and both glasses.
-    crop: 'iw:iw*2/3:0:ih*0.45',
+    // The source is portrait 1080x1440. A centre crop kept the face and cut
+    // the glasses off; dropping the window to 0.45 fixed that but sat low
+    // enough to slice through the hand, hiding the grip on the handle - the
+    // thing the pitcher is actually about. 0.375 holds the grip, the pour
+    // and both glasses.
+    //
+    // The shipped copy is easypour-pitcher-2.mp4: /videos/ is served
+    // immutable for a year, so a re-crop needs a new name. Bump the number
+    // again if this window changes, and update projectMeta to match.
+    crop: 'iw:iw*2/3:0:ih*0.375',
   },
   'freelance-rendering-and-animation': { seconds: 20 },
   // An assembly sequence: cutting it at the default would drop the finished

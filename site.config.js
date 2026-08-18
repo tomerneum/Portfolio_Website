@@ -98,7 +98,9 @@ export const projectMeta = {
   'easypour-pitcher': {
     meta: 'Product design',
     accent: '#a8442f',
-    video: '/videos/easypour-pitcher.mp4',
+    // -2: re-cropped higher to keep the hand on the handle. See the crop
+    // override in scripts/prepare-videos.cjs.
+    video: '/videos/easypour-pitcher-2.mp4',
   },
   'field-worker-tool': {
     meta: 'Tool design',
