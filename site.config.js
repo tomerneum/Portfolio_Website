@@ -49,7 +49,9 @@ export const projectMeta = {
   'construction-design-for-moria-architects': {
     meta: 'Moria Architects / Tel Aviv Museum of Art',
     accent: '#1f3a5f',
-    video: '/videos/construction-design-for-moria-architects.mp4',
+    // Stills only: this tile is Daniel Hanoch's exhibition photograph, so
+    // there is deliberately no looping preview to swap in over it.
+    video: null,
   },
   'hydroponic-system': {
     meta: 'Product design',
@@ -131,6 +133,14 @@ export const mediaReplacements = {
     poster: '/videos/mobius-spinning-top.poster.jpg',
     w: 1866,
     h: 1078,
+  },
+  // The landscape assembly clip on the Parametric Fabrication page, replaced
+  // by the upscaled master - the GIF was a 800x453 crop of the same footage.
+  '40bd1425-7d91-4c66-b8fe-260195ef841b_rw_1200.gif': {
+    video: '/videos/parametric-fabrication-assembly.mp4',
+    poster: '/videos/parametric-fabrication-assembly.poster.jpg',
+    w: 1908,
+    h: 1080,
   },
 };
 

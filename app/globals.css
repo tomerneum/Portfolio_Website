@@ -365,18 +365,13 @@ p {
 /* Tiles butt directly against each other and run edge to edge - any side
    padding here would read as a gap around the block.
 
-   Rows are emitted complete by ProjectGrid's layout(), so there is no
-   auto-placement to leave holes: a wide tile takes a row on its own, and
-   half tiles always arrive in pairs. */
+   Every tile is the same size, two to a row. An odd project count leaves
+   the last slot empty rather than stretching a tile to fill it. */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
   padding: 0 0 clamp(4rem, 8vw, 7rem);
-}
-
-.tile--wide {
-  grid-column: 1 / -1;
 }
 
 .tile {
@@ -390,16 +385,11 @@ p {
   position: relative;
 }
 
-/* Both shapes stay landscape. The covers are 16:9, so 3:2 trims them only
-   slightly and the full-width band at 2:1 a little the other way - neither
-   forces a wide photo into a tall frame. */
+/* One landscape shape for every tile. The covers are 16:9, so 3:2 trims
+   them only slightly and never forces a wide photo into a tall frame. */
 .tile__media {
   position: relative;
   aspect-ratio: 3 / 2;
-}
-
-.tile--wide .tile__media {
-  aspect-ratio: 2 / 1;
 }
 
 .tile__media .videoTile {
@@ -764,13 +754,11 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .tile--wide,
   .tile {
     grid-column: 1;
   }
 
-  .tile__media,
-  .tile--wide .tile__media {
+  .tile__media {
     aspect-ratio: 3 / 2;
   }
 

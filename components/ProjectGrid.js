@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import VideoTile from './VideoTile.js';
 
-function Tile({ project, wide, priority }) {
+function Tile({ project, priority }) {
   const { slug, title, accent, cover, video, hasVideo, videoPoster } = project;
 
   // Prefer a real project video; otherwise fall back to the cover's own
@@ -14,7 +14,7 @@ function Tile({ project, wide, priority }) {
   const posterSrcSet = hasVideo && videoPoster ? null : cover?.srcSet;
 
   return (
-    <article className={wide ? 'tile tile--wide' : 'tile'} style={{ '--accent': accent }}>
+    <article className="tile" style={{ '--accent': accent }}>
       <Link href={`/work/${slug}`} className="tile__link">
         <div className="tile__media">
           <VideoTile
@@ -37,46 +37,16 @@ function Tile({ project, wide, priority }) {
 }
 
 /**
- * Lays the grid out as complete rows: one full-width tile, then two rows of
- * paired half-width tiles, repeating.
- *
- * Working it out here rather than with nth-child rules means a row can never
- * be left half-filled - a lone trailing tile is promoted to full width
- * instead of sitting next to a hole. Every tile stays landscape; the variety
- * comes from scale, not from cropping wide photos into tall frames.
+ * Every tile is the same size: one uniform landscape shape, two to a row.
+ * With an odd number of projects the final row holds a single tile and the
+ * space beside it stays empty - keeping one shape throughout matters more
+ * than filling that last slot.
  */
-function layout(projects) {
-  const rows = [];
-  let i = 0;
-  let step = 0;
-
-  while (i < projects.length) {
-    const remaining = projects.length - i;
-
-    if (step === 0 || remaining === 1) {
-      rows.push([{ project: projects[i], wide: true, index: i }]);
-      i += 1;
-    } else {
-      rows.push([
-        { project: projects[i], wide: false, index: i },
-        { project: projects[i + 1], wide: false, index: i + 1 },
-      ]);
-      i += 2;
-    }
-
-    step = (step + 1) % 3;
-  }
-
-  return rows.flat();
-}
-
 export default function ProjectGrid({ projects, id }) {
-  const tiles = layout(projects);
-
   return (
     <section className="grid" id={id}>
-      {tiles.map(({ project, wide, index }) => (
-        <Tile key={project.slug} project={project} wide={wide} priority={index < 2} />
+      {projects.map((project, index) => (
+        <Tile key={project.slug} project={project} priority={index < 2} />
       ))}
     </section>
   );

@@ -2254,5 +2254,25 @@
     ],
     "animated": false,
     "src": "/img/bo-vacuum-cleaner-cover-1600.webp"
+  },
+  "parametric-fabrication-cover.jpg": {
+    "w": 2048,
+    "h": 1365,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/parametric-fabrication-cover-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/parametric-fabrication-cover-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/parametric-fabrication-cover-1600.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/parametric-fabrication-cover-1600.webp"
   }
 }
