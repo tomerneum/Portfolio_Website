@@ -47,6 +47,9 @@ export const hero = {
 //   accent - tints the hover overlay, one deliberate colour per project.
 //   video  - the silent looping preview shown in the grid. Drop the file at
 //            this path and the tile becomes video automatically.
+//   hidden - takes the project out of the grid and makes /work/<slug> a 404,
+//            without touching its content. For work that is not ready to
+//            show yet.
 export const projectMeta = {
   'impossible-ceramics': {
     meta: 'Material research',
@@ -101,6 +104,9 @@ export const projectMeta = {
     // -2: re-cropped higher to keep the hand on the handle. See the crop
     // override in scripts/prepare-videos.cjs.
     video: '/videos/easypour-pitcher-2.mp4',
+    // Temporarily out of the site. Everything - content, media, the crop -
+    // stays in place; delete this line to bring it back.
+    hidden: true,
   },
   'field-worker-tool': {
     meta: 'Tool design',
