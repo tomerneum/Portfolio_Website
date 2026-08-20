@@ -2290,5 +2290,25 @@
     ],
     "animated": false,
     "src": "/img/beosound-emerge-640.webp"
+  },
+  "configurators-cover.png": {
+    "w": 1504,
+    "h": 918,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/configurators-cover-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/configurators-cover-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/configurators-cover-1600.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/configurators-cover-1600.webp"
   }
 }

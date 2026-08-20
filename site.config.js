@@ -154,6 +154,36 @@ export const configurators = [
       'Set the box dimensions and board, orbit the live 3D model, then send it to the studio to receive an exact solve and a flat-pattern DXF ready to cut.',
     url: 'https://web-production-9f142.up.railway.app/examples/cardboard/',
   },
+  {
+    slug: 'engraved-ring',
+    title: 'Engraved Ring',
+    subtitle: 'Grasshopper · Rhino Compute',
+    blurb:
+      'Type the text, choose a font, style, metal and size, and watch it engrave onto a live 3D ring you can orbit before ordering.',
+    url: 'https://web-production-9f142.up.railway.app/examples/ring/',
+  },
+  {
+    slug: 'bathroom-cabinet',
+    title: 'Bathroom Cabinet',
+    subtitle: 'Grasshopper · Rhino Compute',
+    blurb:
+      'Size the cabinet and pick a finish, then send your details to the studio — a full-material 3D cabinet updates live as you go.',
+    url: 'https://web-production-9f142.up.railway.app/examples/cabinet/',
+  },
+];
+
+// Tiles in the home grid that link somewhere other than a /work project.
+// They render exactly like project tiles - same shape, same hover - but
+// point at their own href. `position` is the zero-based slot in the grid.
+export const featuredTiles = [
+  {
+    slug: 'configurators',
+    title: 'Online Configurators',
+    href: '/configurators',
+    cover: '/images/configurators-cover.png',
+    accent: '#b5793a',
+    position: 0,
+  },
 ];
 
 // Swap a specific image inside a project page for a video.

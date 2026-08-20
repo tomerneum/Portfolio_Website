@@ -14,6 +14,15 @@ export default function ConfiguratorsPage() {
         <h1 className="project__title">Configurators</h1>
       </header>
 
+      <div className="configurators__lead">
+        <p className="configurators__lead-headline">Using the power of Grasshopper online!</p>
+        <p>
+          I created my own system that brings the magic of Grasshopper tools to the non-technical
+          end client. The definitions are solved on a dedicated Rhino Compute server and then
+          rendered in real time using Three.js.
+        </p>
+      </div>
+
       {configurators.map((c) => (
         <section className="configurator" key={c.slug} id={c.slug}>
           <div className="configurator__intro">

@@ -2,7 +2,10 @@ import Link from 'next/link';
 import VideoTile from './VideoTile.js';
 
 function Tile({ project, priority }) {
-  const { slug, title, accent, cover, video, hasVideo, videoPoster } = project;
+  const { slug, title, accent, cover, video, hasVideo, videoPoster, href } = project;
+
+  // A featured tile carries its own href; a project tile links to its page.
+  const link = href || `/work/${slug}`;
 
   // Prefer a real project video; otherwise fall back to the cover's own
   // motion, which exists when the original cover was an animated GIF.
@@ -15,7 +18,7 @@ function Tile({ project, priority }) {
 
   return (
     <article className="tile" style={{ '--accent': accent }}>
-      <Link href={`/work/${slug}`} className="tile__link">
+      <Link href={link} className="tile__link">
         <div className="tile__media">
           <VideoTile
             src={src}
