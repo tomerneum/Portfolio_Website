@@ -675,6 +675,17 @@ p {
   color: rgba(17, 17, 17, 0.82);
 }
 
+/* Links in body copy carry the site's underline idiom, darkening on hover. */
+.mod--text a {
+  color: var(--fg);
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s var(--ease);
+}
+
+.mod--text a:hover {
+  border-color: var(--fg);
+}
+
 .mod--image,
 .mod--video {
   padding: 0 var(--pad);

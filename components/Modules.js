@@ -76,9 +76,26 @@ export default function Modules({ modules }) {
         if (m.type === 'text') {
           return (
             <div className="mod mod--text" key={i}>
-              {m.text.split(/\n{2,}|\n/).filter(Boolean).map((para, j) => (
-                <p key={j}>{para}</p>
-              ))}
+              {m.text
+                .split(/\n{2,}|\n/)
+                .filter(Boolean)
+                .map((para, j) => {
+                  // A paragraph whose trimmed text matches a key in the
+                  // module's `links` map becomes a link to that URL.
+                  const label = para.trim();
+                  const href = m.links?.[label];
+                  return (
+                    <p key={j}>
+                      {href ? (
+                        <a href={href} target="_blank" rel="noopener noreferrer">
+                          {label}
+                        </a>
+                      ) : (
+                        para
+                      )}
+                    </p>
+                  );
+                })}
             </div>
           );
         }

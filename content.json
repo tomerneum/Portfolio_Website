@@ -85,7 +85,10 @@
       "modules": [
         {
           "type": "text",
-          "text": "In collaboration with Moria Architects & OBA studio, I developed a parametric fabrication plan for a 500 m² topographic installation exhibited at the Tel Aviv Museum of Art. Using my script, I was able to easily convert any solid shape to ready-to-cut, automatically numbered DXF files. The hills were designed by Moria Architects, and I used Grasshopper to translate their concept into a buildable system. The structure is made of birch wood, with OBA Studio in charge of construction and assembly. \n Exhibition's museum web page"
+          "text": "In collaboration with Moria Architects & OBA studio, I developed a parametric fabrication plan for a 500 m² topographic installation exhibited at the Tel Aviv Museum of Art. Using my script, I was able to easily convert any solid shape to ready-to-cut, automatically numbered DXF files. The hills were designed by Moria Architects, and I used Grasshopper to translate their concept into a buildable system. The structure is made of birch wood, with OBA Studio in charge of construction and assembly. \n Exhibition's museum web page",
+          "links": {
+            "Exhibition's museum web page": "https://www.tamuseum.org.il/he/exhibition/the-garden-yael-moria-studio-ma/"
+          }
         },
         {
           "type": "video",
@@ -181,10 +184,6 @@
               "h": 3049
             }
           ]
-        },
-        {
-          "type": "spline",
-          "url": "https://my.spline.design/mounds-0292e76bd78017387d5948f5e688d089/"
         },
         {
           "type": "text",
