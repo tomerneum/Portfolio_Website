@@ -3,31 +3,41 @@ import VideoTile from './VideoTile.js';
 function Figure({ image, sizes }) {
   if (!image?.src) return null;
 
+  // A caption names the thing shown - a reference object, a credit - rather
+  // than describing it. Only set it where the name carries information.
+  const caption = image.caption ? <figcaption className="mod__caption">{image.caption}</figcaption> : null;
+
   // Former GIFs now play as silent looping video, keeping their aspect ratio
   // so surrounding layout is unchanged.
   if (image.video) {
     return (
-      <div
-        className="mod__motion"
-        style={{ aspectRatio: image.width && image.height ? `${image.width} / ${image.height}` : '16 / 9' }}
-      >
-        <VideoTile src={image.video} poster={image.src} alt="" />
-      </div>
+      <>
+        <div
+          className="mod__motion"
+          style={{ aspectRatio: image.width && image.height ? `${image.width} / ${image.height}` : '16 / 9' }}
+        >
+          <VideoTile src={image.video} poster={image.src} alt="" />
+        </div>
+        {caption}
+      </>
     );
   }
 
   return (
-    <img
-      className="mod__img"
-      src={image.src}
-      srcSet={image.srcSet || undefined}
-      sizes={sizes}
-      alt=""
-      loading="lazy"
-      decoding="async"
-      width={image.width || undefined}
-      height={image.height || undefined}
-    />
+    <>
+      <img
+        className="mod__img"
+        src={image.src}
+        srcSet={image.srcSet || undefined}
+        sizes={sizes}
+        alt={image.caption || ''}
+        loading="lazy"
+        decoding="async"
+        width={image.width || undefined}
+        height={image.height || undefined}
+      />
+      {caption}
+    </>
   );
 }
 
@@ -73,11 +83,27 @@ export default function Modules({ modules }) {
           );
         }
 
-        if (m.type === 'image') {
+        if (m.type === 'heading') {
           return (
-            <div className="mod mod--image" key={i}>
-              <Figure image={m.images[0]} sizes="(max-width: 900px) 100vw, 1200px" />
-            </div>
+            <h2 className="mod mod--heading" key={i}>
+              {m.text}
+            </h2>
+          );
+        }
+
+        if (m.type === 'image') {
+          const img = m.images[0];
+          // A figure rather than a div so a caption has somewhere legal to
+          // sit, and capped at the source's own width so a small reference
+          // shot is never blown up past the detail it actually holds.
+          return (
+            <figure
+              className="mod mod--image"
+              key={i}
+              style={img.width ? { maxWidth: `${img.width}px` } : undefined}
+            >
+              <Figure image={img} sizes="(max-width: 900px) 100vw, 1200px" />
+            </figure>
           );
         }
 

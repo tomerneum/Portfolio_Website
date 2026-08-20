@@ -2274,5 +2274,21 @@
     ],
     "animated": false,
     "src": "/img/parametric-fabrication-cover-1600.webp"
+  },
+  "beosound-emerge.png": {
+    "w": 640,
+    "h": 640,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/beosound-emerge-480.webp"
+      },
+      {
+        "w": 640,
+        "src": "/img/beosound-emerge-640.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/beosound-emerge-640.webp"
   }
 }

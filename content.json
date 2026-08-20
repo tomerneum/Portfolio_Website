@@ -560,46 +560,15 @@
           ]
         },
         {
-          "type": "text",
-          "text": "Research using AI"
+          "type": "heading",
+          "text": "Main inspiration from B&O"
         },
         {
-          "type": "gallery",
+          "type": "image",
           "images": [
             {
-              "url": "/images/981cd69a-b15e-4811-a2aa-3c3286523da9_rw_600.png",
-              "w": 578,
-              "h": 578
-            },
-            {
-              "url": "/images/7ec41d45-1ca5-4996-8258-07e6d9e7118e_rw_600.png",
-              "w": 558,
-              "h": 558
-            },
-            {
-              "url": "/images/6877ca6a-ed17-4b89-a2b9-daffb986e0ed_rw_1200.png",
-              "w": 606,
-              "h": 606
-            },
-            {
-              "url": "/images/4e8b984f-492b-41f2-ab27-1559b5f22fbe_rw_600.png",
-              "w": 558,
-              "h": 558
-            },
-            {
-              "url": "/images/a0575406-79d3-4124-b2fd-2da031ab6526_rw_600.png",
-              "w": 558,
-              "h": 558
-            },
-            {
-              "url": "/images/ff7b3645-c2c7-4e10-acd6-855a42eb67f5_rw_600.png",
-              "w": 558,
-              "h": 558
-            },
-            {
-              "url": "/images/797e606a-bf65-4a06-8800-98e03d38b19d_rw_600.png",
-              "w": 558,
-              "h": 558
+              "url": "/images/beosound-emerge.png",
+              "caption": "Beosound Emerge"
             }
           ]
         }

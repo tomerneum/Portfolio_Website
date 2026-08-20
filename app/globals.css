@@ -16,6 +16,12 @@
   --pad: clamp(1.25rem, 4vw, 4rem);
   --gap: clamp(0.5rem, 1.4vw, 1.25rem);
 
+  /* Width of the reading column. Held in rem rather than ch so that blocks
+     set in different sizes - body copy and section headings - still share
+     one left edge; ch would widen the column for the larger type. Tracks
+     what 62ch of the body size used to measure. */
+  --measure: clamp(33.4rem, 51vw, 40.1rem);
+
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --font: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -567,7 +573,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  max-width: 62ch;
+  max-width: var(--measure);
   margin: 0 auto;
   padding: 0 var(--pad);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
@@ -578,6 +584,42 @@ p {
 .mod--image,
 .mod--video {
   padding: 0 var(--pad);
+}
+
+/* Capped images (see Modules.js) would otherwise sit against the left edge. */
+.mod--image {
+  margin: 0 auto;
+}
+
+/* Section headings inside a project body. Sized between the project title
+   and the body copy, and aligned to the text column so it reads as the start
+   of a section rather than a floating label. */
+.mod--heading {
+  /* .mods is a flex column, and the auto side margins that centre this
+     column also switch off the default stretch - without width:100% a short
+     heading shrink-wraps and drifts off the text column's left edge. */
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.about .mod--heading {
+  margin-left: 0;
+}
+
+/* Names the thing pictured. Deliberately quiet - it sits under the image and
+   should never compete with it. */
+.mod__caption {
+  margin-top: 0.7rem;
+  color: var(--fg-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .mod__img {
@@ -650,7 +692,7 @@ p {
 
 /* Client logo reel, sized to the text measure so it lines up with the copy. */
 .about__reel {
-  max-width: 62ch;
+  max-width: var(--measure);
   margin-top: clamp(2rem, 5vw, 3.5rem);
   padding: 0 var(--pad);
 }
