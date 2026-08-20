@@ -181,11 +181,14 @@ export const featuredTiles = [
     title: 'Online Configurators',
     href: '/configurators',
     // A screen-recording of the box tool in use; the still cover is kept as
-    // the poster shown until the loop is ready.
+    // the poster shown until the loop is ready. The -2 recording is framed
+    // 3:2 to match the tile, so it needs no crop; /videos/ is immutable, so
+    // the new cut takes a new name.
     cover: '/images/configurators-cover.png',
-    video: '/videos/configurators.mp4',
+    video: '/videos/configurators-2.mp4',
     accent: '#b5793a',
-    position: 0,
+    // Second in the grid, after Impossible Ceramics.
+    position: 1,
   },
 ];
 
