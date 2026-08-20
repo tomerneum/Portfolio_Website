@@ -539,7 +539,7 @@ p {
 /* Lead paragraph under the page title, aligned to the reading column. */
 .configurators__lead {
   max-width: var(--measure);
-  margin: 0 auto clamp(3rem, 7vw, 5rem);
+  margin: 0 0 clamp(3rem, 7vw, 5rem);
   padding: 0 var(--pad);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.6;
@@ -555,6 +555,13 @@ p {
   line-height: 1.25;
 }
 
+/* A quieter caveat below the main explanation. */
+.configurators__note {
+  margin-top: 1rem;
+  color: var(--fg-dim);
+  font-size: 0.95rem;
+}
+
 /* Each embed is a block: a text intro aligned to the reading column, then
    the app framed edge to edge below it. */
 .configurator + .configurator {
@@ -563,7 +570,7 @@ p {
 
 .configurator__intro {
   max-width: var(--measure);
-  margin: 0 auto clamp(1.5rem, 3vw, 2.25rem);
+  margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
   padding: 0 var(--pad);
 }
 
@@ -660,7 +667,8 @@ p {
   flex-direction: column;
   gap: 1.1rem;
   max-width: var(--measure);
-  margin: 0 auto;
+  /* Left-aligned under the page title, not centred in the page. */
+  margin: 0;
   padding: 0 var(--pad);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.6;
@@ -672,9 +680,11 @@ p {
   padding: 0 var(--pad);
 }
 
-/* Capped images (see Modules.js) would otherwise sit against the left edge. */
+/* A capped image (see Modules.js) sits at the left edge, sharing it with the
+   heading and body copy above rather than floating centred. Full-bleed images
+   have no max-width, so this leaves them unchanged. */
 .mod--image {
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* Section headings inside a project body. Sized between the project title
@@ -686,16 +696,12 @@ p {
      heading shrink-wraps and drifts off the text column's left edge. */
   width: 100%;
   max-width: var(--measure);
-  margin: 0 auto;
+  margin: 0;
   padding: 0 var(--pad);
   font-size: clamp(1.35rem, 2.4vw, 1.9rem);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.25;
-}
-
-.about .mod--heading {
-  margin-left: 0;
 }
 
 /* Names the thing pictured. Deliberately quiet - it sits under the image and
@@ -762,12 +768,6 @@ p {
 }
 
 /* --------------------------------------------------------- about/contact */
-
-/* Project text is centred as a reading column, but About reads as a single
-   left-aligned block under the heading. */
-.about .mod--text {
-  margin-left: 0;
-}
 
 /* The About portrait is a supporting detail, not a hero image, so it sits at
    a fixed small size instead of spanning the column like project imagery. */

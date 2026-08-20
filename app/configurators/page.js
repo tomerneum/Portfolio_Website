@@ -21,6 +21,10 @@ export default function ConfiguratorsPage() {
           end client. The definitions are solved on a dedicated Rhino Compute server and then
           rendered in real time using Three.js.
         </p>
+        <p className="configurators__note">
+          Some configurators are for demo purposes only, and take a little longer for the first
+          solve.
+        </p>
       </div>
 
       {configurators.map((c) => (

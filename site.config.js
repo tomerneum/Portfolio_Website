@@ -180,7 +180,10 @@ export const featuredTiles = [
     slug: 'configurators',
     title: 'Online Configurators',
     href: '/configurators',
+    // A screen-recording of the box tool in use; the still cover is kept as
+    // the poster shown until the loop is ready.
     cover: '/images/configurators-cover.png',
+    video: '/videos/configurators.mp4',
     accent: '#b5793a',
     position: 0,
   },
