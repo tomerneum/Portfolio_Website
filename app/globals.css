@@ -534,6 +534,73 @@ p {
   color: var(--fg-dim);
 }
 
+/* ---------------------------------------------------- configurators page */
+
+/* Each embed is a block: a text intro aligned to the reading column, then
+   the app framed edge to edge below it. */
+.configurator + .configurator {
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+}
+
+.configurator__intro {
+  max-width: var(--measure);
+  margin: 0 auto clamp(1.5rem, 3vw, 2.25rem);
+  padding: 0 var(--pad);
+}
+
+.configurator__title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  letter-spacing: -0.02em;
+}
+
+.configurator__subtitle {
+  margin-top: 0.5rem;
+  color: var(--fg-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.configurator__blurb {
+  margin-top: 1rem;
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(17, 17, 17, 0.82);
+}
+
+/* The 3D app is a fixed desktop layout, so it gets a tall frame rather than
+   an aspect ratio that would crush it on wide screens. It runs full-bleed. */
+.configurator__frame {
+  width: 100%;
+  height: clamp(560px, 82vh, 880px);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.configurator__frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.configurator__open {
+  display: inline-block;
+  margin: 1.1rem var(--pad) 0;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg-dim);
+  font-size: 0.9rem;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.configurator__open:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+
 .project__next {
   display: flex;
   flex-direction: column;

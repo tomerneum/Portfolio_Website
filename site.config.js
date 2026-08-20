@@ -22,6 +22,7 @@ export const site = {
   // live under /work/<slug>.
   nav: [
     { label: 'About', href: '/about' },
+    { label: 'Configurators', href: '/configurators' },
     { label: 'Archive', href: '/archive' },
     { label: 'Contact', href: '/contact' },
   ],
@@ -135,6 +136,25 @@ export const aboutReel = {
   video: '/videos/company-logo-reel-2.mp4',
   poster: '/videos/company-logo-reel-2.poster.webp',
 };
+
+// Live parametric configurators, embedded on /configurators. Each runs as
+// its own hosted app (Grasshopper + Rhino Compute) inside an iframe; adding
+// another is one entry here.
+//
+//   title    - shown above the embed
+//   subtitle - the small line under it (the stack it runs on)
+//   blurb    - one or two sentences of context
+//   url      - the hosted app to frame
+export const configurators = [
+  {
+    slug: 'cardboard-box',
+    title: 'Cardboard Box',
+    subtitle: 'Grasshopper · Rhino Compute',
+    blurb:
+      'Set the box dimensions and board, orbit the live 3D model, then send it to the studio to receive an exact solve and a flat-pattern DXF ready to cut.',
+    url: 'https://web-production-9f142.up.railway.app/examples/cardboard/',
+  },
+];
 
 // Swap a specific image inside a project page for a video.
 //
