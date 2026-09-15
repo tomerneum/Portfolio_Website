@@ -698,6 +698,25 @@ p {
   margin: 0;
 }
 
+/* A file-download link, aligned to the reading column and carrying the site's
+   underline idiom so it reads as an action. */
+.mod--download {
+  max-width: var(--measure);
+  margin: 0;
+  padding: 0 var(--pad);
+}
+
+.mod__download {
+  display: inline-block;
+  color: var(--fg);
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s var(--ease);
+}
+
+.mod__download:hover {
+  border-color: var(--fg);
+}
+
 /* Section headings inside a project body. Sized between the project title
    and the body copy, and aligned to the text column so it reads as the start
    of a section rather than a floating label. */

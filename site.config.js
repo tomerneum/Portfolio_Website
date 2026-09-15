@@ -57,6 +57,12 @@ export const projectMeta = {
     accent: '#8c4a2f',
     video: '/videos/impossible-ceramics.mp4',
   },
+  'breathable-arm-cast': {
+    meta: 'Learning project · Grasshopper',
+    accent: '#2f7d8f',
+    // The tile is a still render (the project cover), not a loop.
+    video: null,
+  },
   'construction-design-for-moria-architects': {
     meta: 'Moria Architects / Tel Aviv Museum of Art',
     accent: '#1f3a5f',
@@ -213,11 +219,20 @@ export const mediaReplacements = {
     w: 1908,
     h: 1080,
   },
+  // The Breathable Arm Cast process animation: a silent loop of the mesh being
+  // fitted in Grasshopper. Keyed by the placeholder url its image module uses.
+  'breathable-arm-cast-progress.gif': {
+    video: '/videos/breathable-arm-cast-progress.mp4',
+    poster: '/videos/breathable-arm-cast-progress.poster.jpg',
+    w: 1300,
+    h: 720,
+  },
 };
 
 // Order projects appear in the grid. Anything not listed is appended.
 export const featuredOrder = [
   'impossible-ceramics',
+  'breathable-arm-cast',
   'construction-design-for-moria-architects',
   'hydroponic-system',
   'dj-accessibility-kit',

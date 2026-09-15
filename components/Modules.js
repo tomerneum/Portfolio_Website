@@ -100,6 +100,18 @@ export default function Modules({ modules }) {
           );
         }
 
+        if (m.type === 'download') {
+          // Same-origin file, so `download` forces a save with the file's own
+          // name rather than navigating to it.
+          return (
+            <div className="mod mod--download" key={i}>
+              <a className="mod__download" href={m.href} download>
+                {m.label}
+              </a>
+            </div>
+          );
+        }
+
         if (m.type === 'heading') {
           return (
             <h2 className="mod mod--heading" key={i}>

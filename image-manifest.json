@@ -2310,5 +2310,125 @@
     ],
     "animated": false,
     "src": "/img/configurators-cover-1600.webp"
+  },
+  "breathable-arm-cast-cover.png": {
+    "w": 3840,
+    "h": 2160,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/breathable-arm-cast-cover-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/breathable-arm-cast-cover-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/breathable-arm-cast-cover-1600.webp"
+      },
+      {
+        "w": 2400,
+        "src": "/img/breathable-arm-cast-cover-2400.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/breathable-arm-cast-cover-2400.webp"
+  },
+  "breathable-arm-cast-2.png": {
+    "w": 3840,
+    "h": 2160,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/breathable-arm-cast-2-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/breathable-arm-cast-2-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/breathable-arm-cast-2-1600.webp"
+      },
+      {
+        "w": 2400,
+        "src": "/img/breathable-arm-cast-2-2400.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/breathable-arm-cast-2-2400.webp"
+  },
+  "breathable-arm-cast-3.png": {
+    "w": 3840,
+    "h": 2160,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/breathable-arm-cast-3-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/breathable-arm-cast-3-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/breathable-arm-cast-3-1600.webp"
+      },
+      {
+        "w": 2400,
+        "src": "/img/breathable-arm-cast-3-2400.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/breathable-arm-cast-3-2400.webp"
+  },
+  "breathable-arm-cast-4.png": {
+    "w": 3840,
+    "h": 2160,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/breathable-arm-cast-4-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/breathable-arm-cast-4-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/breathable-arm-cast-4-1600.webp"
+      },
+      {
+        "w": 2400,
+        "src": "/img/breathable-arm-cast-4-2400.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/breathable-arm-cast-4-2400.webp"
+  },
+  "breathable-arm-cast-5.png": {
+    "w": 3840,
+    "h": 2160,
+    "variants": [
+      {
+        "w": 480,
+        "src": "/img/breathable-arm-cast-5-480.webp"
+      },
+      {
+        "w": 960,
+        "src": "/img/breathable-arm-cast-5-960.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/img/breathable-arm-cast-5-1600.webp"
+      },
+      {
+        "w": 2400,
+        "src": "/img/breathable-arm-cast-5-2400.webp"
+      }
+    ],
+    "animated": false,
+    "src": "/img/breathable-arm-cast-5-2400.webp"
   }
 }

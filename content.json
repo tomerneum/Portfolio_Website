@@ -80,6 +80,63 @@
       "cover": "/images/0a965397-c172-45d4-86be-51f4149d3bde_carw_16x9x5120.jpg"
     },
     {
+      "slug": "breathable-arm-cast",
+      "title": "Breathable arm cast",
+      "displayTitle": "Breathable Arm Cast",
+      "cover": "/images/breathable-arm-cast-cover.png",
+      "modules": [
+        {
+          "type": "text",
+          "text": "A learning project dedicated to exploring 3D patterns, recursive mesh fitting, and creating Python components with Claude."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "url": "/images/breathable-arm-cast-2.png",
+              "w": 3840,
+              "h": 2160
+            },
+            {
+              "url": "/images/breathable-arm-cast-3.png",
+              "w": 3840,
+              "h": 2160
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "images": [
+            {
+              "url": "/images/breathable-arm-cast-progress.gif",
+              "w": 1300,
+              "h": 720
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "url": "/images/breathable-arm-cast-4.png",
+              "w": 3840,
+              "h": 2160
+            },
+            {
+              "url": "/images/breathable-arm-cast-5.png",
+              "w": 3840,
+              "h": 2160
+            }
+          ]
+        },
+        {
+          "type": "download",
+          "href": "/files/arm-lattice.gh",
+          "label": "Download the Grasshopper file (.gh)"
+        }
+      ]
+    },
+    {
       "slug": "construction-design-for-moria-architects",
       "title": "Parametric fabrication plan Tel Aviv Museum of Art",
       "modules": [
