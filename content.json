@@ -96,11 +96,6 @@
               "url": "/images/breathable-arm-cast-2.png",
               "w": 3840,
               "h": 2160
-            },
-            {
-              "url": "/images/breathable-arm-cast-3.png",
-              "w": 3840,
-              "h": 2160
             }
           ]
         },
@@ -132,7 +127,8 @@
         {
           "type": "download",
           "href": "/files/arm-lattice.gh",
-          "label": "Download the Grasshopper file (.gh)"
+          "label": "Download Grasshopper file",
+          "icon": "/img/grasshopper-logo.png"
         }
       ]
     },

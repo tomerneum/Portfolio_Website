@@ -102,11 +102,15 @@ export default function Modules({ modules }) {
 
         if (m.type === 'download') {
           // Same-origin file, so `download` forces a save with the file's own
-          // name rather than navigating to it.
+          // name rather than navigating to it. An optional icon sits above the
+          // label, the whole thing one click target.
           return (
             <div className="mod mod--download" key={i}>
               <a className="mod__download" href={m.href} download>
-                {m.label}
+                {m.icon && (
+                  <img className="mod__download-icon" src={m.icon} alt="" width="72" height="72" />
+                )}
+                <span className="mod__download-label">{m.label}</span>
               </a>
             </div>
           );

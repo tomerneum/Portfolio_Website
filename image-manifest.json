@@ -2359,30 +2359,6 @@
     "animated": false,
     "src": "/img/breathable-arm-cast-2-2400.webp"
   },
-  "breathable-arm-cast-3.png": {
-    "w": 3840,
-    "h": 2160,
-    "variants": [
-      {
-        "w": 480,
-        "src": "/img/breathable-arm-cast-3-480.webp"
-      },
-      {
-        "w": 960,
-        "src": "/img/breathable-arm-cast-3-960.webp"
-      },
-      {
-        "w": 1600,
-        "src": "/img/breathable-arm-cast-3-1600.webp"
-      },
-      {
-        "w": 2400,
-        "src": "/img/breathable-arm-cast-3-2400.webp"
-      }
-    ],
-    "animated": false,
-    "src": "/img/breathable-arm-cast-3-2400.webp"
-  },
   "breathable-arm-cast-4.png": {
     "w": 3840,
     "h": 2160,

@@ -707,13 +707,31 @@ p {
 }
 
 .mod__download {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
   color: var(--fg);
+  text-align: center;
+}
+
+.mod__download-icon {
+  width: 72px;
+  height: 72px;
+  transition: transform 0.3s var(--ease);
+}
+
+.mod__download:hover .mod__download-icon {
+  transform: translateY(-3px);
+}
+
+.mod__download-label {
   border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
   transition: border-color 0.3s var(--ease);
 }
 
-.mod__download:hover {
+.mod__download:hover .mod__download-label {
   border-color: var(--fg);
 }
 
