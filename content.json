@@ -87,7 +87,7 @@
       "modules": [
         {
           "type": "text",
-          "text": "A learning project dedicated to exploring 3D patterns, recursive mesh fitting, and creating Python components with Claude."
+          "text": "A learning project dedicated to exploring 3D patterns, recursive mesh fitting, and creating Python components with Claude.\n\nThe definition supports most cylindrical-like geometries, and automatically adapts the cast to the object's shape.\n\nDownload the Grasshopper script and test for yourself!"
         },
         {
           "type": "gallery",
