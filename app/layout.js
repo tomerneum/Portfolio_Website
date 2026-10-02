@@ -1,6 +1,7 @@
+import Script from 'next/script';
 import Nav from '../components/Nav.js';
 import Footer from '../components/Footer.js';
-import { site } from '../site.config.js';
+import { site, analytics } from '../site.config.js';
 import './globals.css';
 
 export const metadata = {
@@ -36,6 +37,9 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
       </body>
+      {process.env.NODE_ENV === 'production' && analytics.umamiWebsiteId && (
+        <Script src={analytics.umamiSrc} data-website-id={analytics.umamiWebsiteId} />
+      )}
     </html>
   );
 }

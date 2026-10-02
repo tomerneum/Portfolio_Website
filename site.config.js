@@ -28,6 +28,15 @@ export const site = {
   ],
 };
 
+// Umami analytics (cloud.umami.is) - privacy-friendly, cookieless visit stats
+// with country/city, viewed on the Umami dashboard. The website id is a public
+// client-side token. Loaded only in production (see app/layout.js), so local
+// dev hits don't pollute the stats. Clear the id to turn tracking off.
+export const analytics = {
+  umamiSrc: 'https://cloud.umami.is/script.js',
+  umamiWebsiteId: 'd425b16f-ce13-4080-9160-6dfe10836fb0',
+};
+
 // The hero video, playing fullscreen behind the statement.
 //
 // Deliberately the heaviest file on the site: 27s of 1080p at ~5.8 Mbps,
